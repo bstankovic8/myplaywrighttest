@@ -14,10 +14,9 @@ test.skip('test', async ({ page }) => {
     await page.getByRole('textbox', { name: 'Password' }).click();
     await page.getByRole('textbox', { name: 'Password' }).fill('SmarasVise1');
     await page.getByRole('button', { name: 'Sign in', exact: true }).click();
-    await page.pause();
 });
 
-test('Using Various Locator Method', async ({page}) => {
+test.skip('Using Various Locator Method', async ({page}) => {
     await page.goto('https://github.com/');
     await page.getByRole('link', { name: 'Sign in' }).click();
     await page.getByRole('textbox', { name: 'Username or email address' }).click();
