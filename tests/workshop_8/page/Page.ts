@@ -3,29 +3,27 @@ import { AbstractPage } from "./AbstractPage";
 import { Input } from "./Input";
 import { Button } from "./Button";
 
-export class PageObject extends AbstractPage{
+export class PageObject extends AbstractPage {
     private button: Button;
     private input: Input;
 
     readonly firstNameInputSelector = '#firstName';
     readonly ageInputSelector = '#age';
     readonly isStudentCheckboxSelector = '#isStudent';
-    readonly applyDataButtonSelector = '#apllyData';
+    readonly applyDataButtonSelector = '#applyData';  
 
     readonly displayFirstName = '#displayFirstName';
-    readonly dislayAge = '#dislayAge';
-    readonly displayisStudent = '#displayisStudent';
-
-
+    readonly displayAge = '#displayAge';  
+    readonly displayIsStudent = '#displayisStudent';
 
     constructor(page: Page) {
         super(page);
-        this.button = new Button(page)
-        this.input = new Input(page)
+        this.button = new Button(page);
+        this.input = new Input(page);
     }
 
     async open(url: string): Promise<void> {
-    await this.page.goto(url);
+        await this.page.goto(url);
     }
 
     async applyData(): Promise<void> {
@@ -33,19 +31,18 @@ export class PageObject extends AbstractPage{
     }
 
     async fillFirstName(value: string): Promise<void> {
-        await this.input.setInputValue(this. firstNameInputSelector, value)
+        await this.input.setInputValue(this.firstNameInputSelector, value);  
     }
 
     async fillAge(value: string): Promise<void> {
-        await this.input.setInputValue(this.ageInputSelector, value)
+        await this.input.setInputValue(this.ageInputSelector, value);
     }
 
     async checkIsStudent(): Promise<void> {
         await this.page.check(this.isStudentCheckboxSelector);
     }
 
-    async text(selector: string): Promise<string | null> {
-        const textContent = await this.page.textContent(selector);
-        return textContent;
+    async text(selector: string): Promise<string> {
+        return (await this.page.textContent(selector))?.trim() || ""; 
     }
 }
