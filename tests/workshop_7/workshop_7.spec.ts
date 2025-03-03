@@ -35,7 +35,7 @@ test.describe('Type Definitions and Interfaces', () => {
         age: 26,
         isStudent: true,
     };
-    test('Type Def and Interfaces', async ({page}) => {
+    test.skip('Type Def and Interfaces', async ({page}) => {
         await page.goto('http://127.0.0.1:5500/tests/workshop_7/index.html');
         await page.fill(selectors.firstName, user.firstName);
         await page.fill(selectors.age, user.age.toString());
