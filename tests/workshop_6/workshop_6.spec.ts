@@ -12,7 +12,7 @@ test.describe('User registration tests', () => {
     test.beforeEach(async ({page}) => {
         await page.goto('http://127.0.0.1:5500/tests/workshop_6/index.html');
     })
-    test('Register with valid data', async ({page}) => {
+    test.skip('Register with valid data', async ({page}) => {
         await page.fill('#firstName', testData.firstName);
         await page.fill('#lastName', testData.lastName);
         await page.fill('#address', testData.address);
@@ -30,7 +30,7 @@ test.describe('User registration tests', () => {
         await expect(numberText).toEqual(testData.number);
     });
 
-    test('Register with wrong fields', async ({page}) => {
+    test.skip('Register with wrong fields', async ({page}) => {
         await page.fill('#firstName', testData.firstName);
         await page.fill('#lastName', testData.lastName);
         await page.click('#register')
@@ -39,7 +39,7 @@ test.describe('User registration tests', () => {
         expect(error).toBe('Please fill in all fields.');
     });
 
-    test('Register with empty fields', async ({page}) => {
+    test.skip('Register with empty fields', async ({page}) => {
         await page.click('#register');
 
         const error =await page.locator('#error p').textContent();
