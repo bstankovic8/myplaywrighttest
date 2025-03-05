@@ -6,7 +6,7 @@ const selectors = {
     student: '#isStudent'
 }
 test.describe('Variable Declaration and Types', () => {
-    test.skip('Declaration and Types', async ({page}) => {
+    test('Declaration and Types', async ({page}) => {
         let firstname: string = 'John';
         let age: number = 30;
         let isStudent: boolean = false;
@@ -35,7 +35,7 @@ test.describe('Type Definitions and Interfaces', () => {
         age: 26,
         isStudent: true,
     };
-    test.skip('Type Def and Interfaces', async ({page}) => {
+    test('Type Def and Interfaces', async ({page}) => {
         await page.goto('http://127.0.0.1:5500/tests/workshop_7/index.html');
         await page.fill(selectors.firstName, user.firstName);
         await page.fill(selectors.age, user.age.toString());

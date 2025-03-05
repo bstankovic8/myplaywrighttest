@@ -1,6 +1,6 @@
 import {test, expect} from '@playwright/test';
 
-test.skip('Automation form Submissions', async ({page}) => {
+test('Automation form Submissions', async ({page}) => {
 
     await page.goto('https://demo.playwright.dev/todomvc');
     const newToDo = await page.getByPlaceholder('What needs to be done?');
@@ -18,7 +18,7 @@ test.skip('Automation form Submissions', async ({page}) => {
     
 })
 
-test.skip('Handling Form', async ({page}) => {
+test('Handling Form', async ({page}) => {
     await page.goto('https://demo.playwright.dev/todomvc');
     const placeholder = '[placeholder="What needs to be done?"]'
     await page.fill(placeholder, 'John Doe');
