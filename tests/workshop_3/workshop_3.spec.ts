@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-test.skip('Advanced Interaction', async ({page}) => {
+test('Advanced Interaction', async ({page}) => {
     await page.goto('http://127.0.0.1:5500/tests/workshop_3/index.html')
     await page.hover('button#hover-me');
     expect(await page.textContent('button#hover-me')).toContain('Text Changed!'); 
@@ -12,7 +12,7 @@ test.skip('Advanced Interaction', async ({page}) => {
     expect(await page.locator('img').count()).toBe(1);
 });
 
-test.skip('Drag and Drop', async ({page}) => {
+test('Drag and Drop', async ({page}) => {
     await page.goto('http://127.0.0.1:5500/tests/workshop_3/index.html');
     // await page.dragAndDrop('.drag-source', '.drop-target');
     // expect (await page.textContent('.drop-target')).toContain('Success');
@@ -23,7 +23,7 @@ test.skip('Drag and Drop', async ({page}) => {
     expect (await page.textContent('.drop-target')).toContain('Success');
 })
 
-test.skip('Handling iframe', async ({page}) => {
+test('Handling iframe', async ({page}) => {
     await page.goto('http://127.0.0.1:5500/tests/workshop_3/index.html');
     const iframeElement = await page.frame({name: 'iframeName'});
     const inputSelector = '#iframe-input';

@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-test.skip('Open New Window And Naviagte Back', async ({context, page}) => {
+test('Open New Window And Naviagte Back', async ({context, page}) => {
     await page.goto('http://127.0.0.1:5500/tests/workshop_5/index.html');
     const pagePromise = context.waitForEvent('page');
     await page.click('#openNewWindow');
@@ -10,7 +10,7 @@ test.skip('Open New Window And Naviagte Back', async ({context, page}) => {
     await expect (NewPage.getByRole('heading', {name: 'Welcome to the New Page'})).toBeVisible();
 });
 
-test.skip('Add cookie', async ({page}) => {
+test('Add cookie', async ({page}) => {
     await page.goto('http://127.0.0.1:5500/tests/workshop_5/index.html');
     await page.click('#setCookie');
     const cookies = await page.context().cookies('http://127.0.0.1:5500/tests/workshop_5/index.html'); //url se stavi, da kao parametar
@@ -19,7 +19,7 @@ test.skip('Add cookie', async ({page}) => {
     await expect (sessionCookie).toBeDefined();
 })
 
-test.skip('Delete cookie', async ({page}) => {
+test('Delete cookie', async ({page}) => {
     await page.goto('http://127.0.0.1:5500/tests/workshop_5/index.html');
     await page.click('#setCookie');
     const cookies = await page.context().cookies('http://127.0.0.1:5500/tests/workshop_5/index.html'); //url se stavi, da kao parametar

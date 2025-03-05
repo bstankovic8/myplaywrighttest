@@ -1,7 +1,7 @@
 import {test, expect} from '@playwright/test';
 
 
-test.skip('Handling Alerts', async ({page}) => {
+test('Handling Alerts', async ({page}) => {
     await page.goto('http://127.0.0.1:5500/tests/workshop_4/index.html');
     let alertMessage = '';
     page.on('dialog', async(dialog) => {
@@ -13,7 +13,7 @@ await page.click('#show-alert');
 expect (alertMessage).toBe('This is a simple alert.');
 })
 
-test.skip('Confirm Alert', async ({page})=> {
+test('Confirm Alert', async ({page})=> {
     await page.goto('http://127.0.0.1:5500/tests/workshop_4/index.html');
     let alertMessage = '';
     page.on('dialog', async(dialog) => {
@@ -25,7 +25,7 @@ test.skip('Confirm Alert', async ({page})=> {
     expect (alertMessage).toBe('You clicked Cancel.');
 })
 
-test.skip('Handling Pop-Ups', async ({page}) => {
+test('Handling Pop-Ups', async ({page}) => {
     await page.goto('http://127.0.0.1:5500/tests/workshop_4/index.html');
     const [popup] = await Promise.all([
         page.waitForEvent('popup'),
