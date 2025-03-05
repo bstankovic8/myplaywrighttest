@@ -14,7 +14,7 @@ export class PageObject extends AbstractPage {
 
     readonly displayFirstName = '#displayFirstName';
     readonly displayAge = '#displayAge';  
-    readonly displayIsStudent = '#displayisStudent';
+    readonly displayIsStudent = '#displayIsStudent';
 
     constructor(page: Page) {
         super(page);
@@ -42,7 +42,8 @@ export class PageObject extends AbstractPage {
         await this.page.check(this.isStudentCheckboxSelector);
     }
 
-    async text(selector: string): Promise<string> {
-        return (await this.page.textContent(selector))?.trim() || ""; 
+    async text(selector: string): Promise<string | null> {
+        const textContent = await this.page.textContent(selector);
+        return textContent ??  null;
     }
 }
