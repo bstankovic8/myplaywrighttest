@@ -17,7 +17,7 @@ test('Automatng From Submissions @githubAction', async ({page}) => {
     await expect(secontTodo).not.toHaveClass('completed'); 
 })
 
-test.only('Handling From @githubAction', async({page}) => {
+test('Handling From @githubAction', async({page}) => {
     await page.goto('https://demo.playwright.dev/todomvc/#/');
     await page.fill('[placeholder="What needs to be done?"]', 'John');
     await page.locator('[placeholder="What needs to be done?"]').press('Enter');
