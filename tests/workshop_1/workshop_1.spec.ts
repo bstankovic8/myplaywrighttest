@@ -1,12 +1,12 @@
 import { test } from 'playwright/test';
 
-test.skip('Basic Navigation', async ({page}) => {
+test('Basic Navigation', async ({page}) => {
     await page.goto('https://github.com/');
     await page.waitForTimeout(3000);
     await page.reload();
 })
 
-test.skip('test', async ({ page }) => {
+test('test', async ({ page }) => {
     await page.goto('https://github.com/');
     await page.getByRole('link', { name: 'Sign in' }).click();
     await page.getByRole('textbox', { name: 'Username or email address' }).click();
@@ -16,7 +16,7 @@ test.skip('test', async ({ page }) => {
     await page.getByRole('button', { name: 'Sign in', exact: true }).click();
 });
 
-test.skip('Using Various Locator Method', async ({page}) => {
+test('Using Various Locator Method', async ({page}) => {
     await page.goto('https://github.com/');
     await page.getByRole('link', { name: 'Sign in' }).click();
     await page.getByRole('textbox', { name: 'Username or email address' }).click();
