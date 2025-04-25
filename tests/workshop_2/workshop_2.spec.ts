@@ -1,6 +1,6 @@
 import {test, expect} from '@playwright/test';
 
-test.skip('Automation form Submissions', async ({page}) => {
+test('Automation form Submissions', async ({page}) => {
 
     await page.goto('https://demo.playwright.dev/todomvc');
     const newToDo = await page.getByPlaceholder('What needs to be done?');
